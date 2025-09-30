@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div p{
+            font-size: 20px;
+        }   
+        @media(min-width:760px){
+            div p{
+            font-size: 30px;
+            }
+        }
+         @media(max-width:470px){
+            div p{
+            font-size: 12px;
+            }
+        }
+        .columns{
+            display: flex;
+            gap: 20px;
+            background-color: red;
+        }
+        .column{
+            flex: 1;
+            padding: 16px;
+            background-color: yellow;
+            border: 1px solid black;
+        }
+        @media (max-width: 600px) {
+        .columns {
+                flex-direction: column;
+                }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, porro veniam quis vero aperiam ea ipsum distinctio dignissimos itaque doloremque ab possimus fugiat autem neque alias, voluptatibus quisquam perspiciatis id.</p>
+    </div>
+    
+  <div class="columns">
+    <div class="column">Column One</div>
+    <div class="column">Column Two</div>
+  </div>
+
+</body>
+</html>
