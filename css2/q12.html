@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            gap: 100px;
+        }
+        a{
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        .container{
+            background-color: gray;
+            padding: 120px;
+            display: flex;
+            flex-direction: row;
+        }
+        .box{
+            padding: 30px;
+            gap: 10px;
+            
+        }
+        img{
+            height: 100px;
+            width: 300px;
+           align-items: center;
+          
+        }
+        h1{
+            text-align: center;
+        }
+        @media(max-width:600px){
+             nav{
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            padding: 30px;
+            gap: 20px;
+        }
+             .container{
+            background-color: gray;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <nav>
+    <a href="">home </a>
+    <a href="">about </a>
+    <a href="">contact</a>
+    <a href="">register</a>
+  </nav>
+
+  <div class="container">
+    <div class="box">
+        <img src="india.jpg" alt="">
+        <h1>hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestiae, labore praesentium 
+            </p>
+    </div>
+    <div class="box">
+         <img src="india.jpg" alt="">
+        <h1>hello</h1>
+        <p>Lorem ipsum dolor sit t eligendi aperiam a eius repellat ipsam ea inventore iusto ullam nulla?</p>
+    </div>
+    <div class="box">
+        <img src="india.jpg" alt="">
+        <h1>hello</h1>
+        <p>Lorem ippraesentium veritatis non similique tempore dolorem, necessitatibus eveniet eligendi aperiam a eius repellat ipsam ea inventore iusto ullam nulla?</p>
+    </div>
+  </div>
+    
+</body>
+</html>
