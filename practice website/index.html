@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Designer Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #000;
+      color: #fff900;
+    }
+    .bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 60vh;
+      width: 100vw;
+      object-fit: cover;
+      z-index: 0;
+      filter: grayscale(100%) blur(2px) brightness(0.7);
+    }
+    .overlay {
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    .container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      z-index: 2;
+      padding: 0 60px;
+    }
+    .menu-bar {
+      position: fixed;
+      left: 22px; top: 38px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 10;
+    }
+    .menu-bar a, .menu-bar span {
+      color: #fff900;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-bottom: 3px;
+      transition: color .2s;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .title-section {
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+    .subtitle {
+      color: #fff900;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 13px;
+      letter-spacing: 1px;
+    }
+    .main-title {
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #fff900;
+      margin-bottom: 6px;
+    }
+    .desc-text {
+      font-size: 1rem;
+      color: #fff900;
+      margin-bottom: 13px;
+      max-width: 420px;
+      font-weight: 400;
+      letter-spacing: 0.6px;
+    }
+    .info-bar {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .services, .contact {
+      min-width: 220px;
+      font-size: 1.05rem;
+    }
+    .services-title, .contact-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      color: #fff900;
+      letter-spacing: 0.7px;
+      border-bottom: 1px solid #fff90026;
+      display: inline-block;
+      padding-bottom: 3px;
+    }
+    .services-list, .contact-list {
+      margin-top: 7px;
+      color: #fff900;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: right;
+    }
+    .skills-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 55px;
+      max-width: 600px;
+    }
+    .skill-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .skill-title {
+      font-weight: 500;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      background: #222;
+      height: 4px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 2px;
+      margin-top:2px;
+    }
+    .progress-bar {
+      height: 100%;
+      background: #fff900;
+      transition: width 1s;
+      border-radius:5px;
+    }
+    .bottom-section {
+      background: #000;
+      min-height: 45vh;
+      width: 100vw;
+      padding: 98px 0 60px 0;
+    }
+    .start-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #fff900;
+      margin-bottom: 44px;
+      margin-left: 60px;
+      line-height: 1;
+    }
+    form {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 38px 60px;
+      color: #fff900;
+    }
+    form input, form textarea {
+      width: 100%;
+      background: transparent;
+      color: #fff900;
+      border: none;
+      border-bottom: 2px solid #fff900;
+      margin-top: 20px;
+      font-size: 1.05rem;
+      padding: 6px 0;
+      transition: border 0.2s;
+      outline: none;
+    }
+    form textarea {
+      min-height: 53px;
+      resize: vertical;
+    }
+    .attach-label {
+      grid-column: span 2;
+      margin-top: 20px;
+      color: #fff900;
+      font-size: 0.99rem;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .attach-label input {
+      display: none;
+    }
+    .submit-btn {
+      background: #fff900;
+      color: #000;
+      font-size: 1.13rem;
+      font-weight: 700;
+      border: none;
+      padding: 14px 32px;
+      margin-top: 32px;
+      cursor: pointer;
+      border-radius: 7px;
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: left;
+      width: fit-content;
+    }
+    .submit-btn:hover {
+      background: #fff;
+      color: #111;
+    }
+    @media (max-width: 900px) {
+      .container { padding: 0 15px;}
+      .skills-row { flex-direction: column; gap: 16px;}
+      .start-title { margin-left: 15px; font-size:2rem;}
+      form { grid-template-columns: 1fr;}
+    }
+    @media (max-width: 600px) {
+      .title-section {padding-top: 60px;}
+      .main-title, .start-title { font-size: 1.5rem;}
+      .skills-row { max-width: 100%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Background image section -->
+  <img src="port.jpg" class="bg-image">
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div class="menu-bar">
+      <span>☰</span>
+      <a href="#">in</a>
+      <a href="#">@</a>
+      <a href="#">f</a>
+    </div>
+    <div class="title-section">
+      <div class="subtitle">A product Designer</div>
+      <div class="main-title">Scott<br>Patten</div>
+      <div class="desc-text">Hi! My name is Scott Patten. I have years of experience in graphic design, web and photography.</div>
+      <div class="info-bar">
+        <div class="services">
+          <div class="services-title">Services</div>
+          <div class="services-list">
+            <span>03. Photography</span>
+            <span>04. WordPress</span>
+            <span>05. Photoshop</span>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="contact-title">Contact</div>
+          <div class="contact-list">
+            <span>3 (425) 523 38 29</span>
+            <span>Centrix@info.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="skills-row">
+        <div class="skill-group">
+          <div>
+            <div class="skill-title">Photoshop <span>80%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar" style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="skill-title">Figma <span>70%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar" style="width:70%"></div></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div>
+            <div class="skill-title">WordPress <span>90%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar" style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="skill-title">Illustrator <span>75%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="start-title">Start a<br>Project?</div>
+    <form>
+      <div>
+        <input type="text" placeholder="Name" required>
+        <textarea placeholder="Message"></textarea>
+      </div>
+      <div>
+        <input type="text" placeholder="Name" required>
+        <input type="text" placeholder="">
+      </div>
+      <label class="attach-label">
+        📎 ATTACH A FILE
+        <input type="file">
+      </label>
+      <button class="submit-btn" type="submit">
+        SUBMIT
+        <span style="font-size:1.2rem;">→</span>
+      </button>
+    </form>
+  </div>
+</body>
+</html>
